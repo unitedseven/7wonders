@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seven Wonders</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="wonders.html" class="active">Wonders</a>
+      <a href="aboutus.html">About Us</a>
+    </nav>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h1>The Seven Wonders of the World</h1>
+    <div class="wonder-grid">
+      <div class="wonder-item" onclick="openWonder('great-wall')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/f2a4c9fc-8d8d-40f2-9ed2-9124328fd8c9.jfif" alt="Great Wall of China">
+        <p>Great Wall of China</p>
+      </div>
+      <div class="wonder-item" onclick="openWonder('petra')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/rol-cruise-blog-seven-wonders-of-the-world-jordan-petra-6352ba1b6e848.jpeg" alt="Petra">
+        <p>Petra</p>
+      </div>
+      <div class="wonder-item" onclick="openWonder('cristo')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/chr.jpg" alt="Christ the Redeemer">
+        <p>Christ the Redeemer</p>
+      </div>
+      <div class="wonder-item" onclick="openWonder('machu-picchu')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/rol-cruise-blog-seven-wonders-of-the-world-peru-machu-picchu-6352ba2be1b07.jpeg" alt="Machu Picchu">
+        <p>Machu Picchu</p>
+      </div>
+      <div class="wonder-item" onclick="openWonder('chichen-itza')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/rol-cruise-blog-seven-wonders-of-the-world-mexico-chichen-itza-6352ba246be97.jpeg" alt="Chichen Itza">
+        <p>Chichen Itza</p>
+      </div>
+      <div class="wonder-item" onclick="openWonder('roman-colosseum')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/rom.jfif" alt="Roman Colosseum">
+        <p>Roman Colosseum</p>
+      </div>
+      <div class="wonder-item" onclick="openWonder('taj-mahal')">
+        <img src="https://assets.onecompiler.app/43dbmphpd/43db823vq/rol-cruise-blog-seven-wonders-of-the-world-india-taj-mahal-6352ba0bafe9e.jpeg" alt="Taj Mahal">
+        <p>Taj Mahal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Descriptions -->
+  <div id="wonder-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeWonder()">&times;</span>
+      <h2 id="wonder-title"></h2>
+      <p id="wonder-description"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript for Modal Functionality -->
+  <script>
+    const wonders = {
+      "great-wall": {
+        title: "Great Wall of China",
+        description: "The Great Wall of China stretches across the rugged landscapes of northern China, a testament to ancient ingenuity and perseverance. Built over centuries, its winding stone path climbs steep mountains and traverses vast plains. Towering watchtowers offer a glimpse into the past, where soldiers once guarded the empire. The wall's majestic presence symbolizes China's strength, resilience, and rich history, captivating visitors with its breathtaking beauty and historical significance. As it snakes through the terrain, the Great Wall stands as an enduring reminder of human determination against the forces of nature and time."
+      },
+      "petra": {
+        title: "Petra",
+        description: "Petra is an archaeological city in Jordan, famous for its rock-cut architecture and water conduit system."
+      },
+      "cristo": {
+        title: "Christ the Redeemer",
+        description: "The Christ the Redeemer statue is a monumental Art Deco sculpture of Jesus Christ, a globally recognized symbol of both Christianity and Brazil. Perched dramatically atop the 700-meter (2,300 ft) Corcovado Mountain in Rio de Janeiro's Tijuca Forest National Park, it offers a breathtaking panoramic view of the city, including Sugarloaf Mountain, Copacabana and Ipanema beaches, and Guanabara Bay. Artistic Style: The statue's design, attributed to Brazilian engineer Heitor da Silva Costa and Polish-French sculptor Paul Landowski, exemplifies the Art Deco style, characterized by its geometric shapes and stylized forms. The outstretched arms, a key feature, create a cross-like silhouette, symbolizing peace and welcome. Material and Construction: Constructed between 1922 and 1931, the statue is made of reinforced concrete, chosen for its strength and durability, and clad in thousands of small triangular soapstone tiles. These tiles give the statue its distinctive mosaic-like appearance and ensure its resistance to the elements. Dimensions and Proportions: The statue stands 30 meters (98 feet) tall, not including its 8-meter (26-foot) pedestal. The outstretched arms span 28 meters (92 feet), creating a wide and embracing gesture. The head alone weighs approximately 30 metric tons. Cultural and Religious Significance: Beyond its artistic merit, Christ the Redeemer holds deep religious significance for Brazilians, particularly Catholics. It serves as a powerful symbol of faith and devotion. Its location and pose also convey a sense of protection and blessing over the city. Global Recognition: Designated one of the New Seven Wonders of the World in 2007, Christ the Redeemer's image is instantly recognizable worldwide, solidifying its status as a cultural icon and a testament to human artistic achievement."
+      },
+      "machu-picchu": {
+        title: "Machu Picchu",
+        description: "An ancient Incan city located in the Andes Mountains of Peru, known for its sophisticated dry-stone construction."
+      },
+      "chichen-itza": {
+        title: "Chichen Itza",
+        description: "A large pre-Columbian archaeological site in Mexico, featuring the iconic El Castillo pyramid."
+      },
+      "roman-colosseum": {
+        title: "Roman Colosseum",
+        description: "The Colosseum, also known as the Flavian Amphitheatre, is one of the most iconic and enduring landmarks of Ancient Rome. Located in the heart of Rome, Italy, it stands as a testament to the architectural and engineering brilliance of the Roman Empire. Historical Background: Construction began between 70-72 AD under Emperor Vespasian and was completed in 80 AD by his son, Emperor Titus. It was built to host public spectacles such as gladiatorial contests, animal hunts, and mock sea battles. Architectural Features: - Dimensions: 189 meters long, 156 meters wide, and about 50 meters tall. - Capacity: 50,000 to 80,000 spectators. - Structure: Elliptical shape with Doric, Ionic, and Corinthian columns. - Hypogeum: Underground tunnels and cages for animals and gladiators. Cultural Significance: The Colosseum symbolized the power and culture of the Roman Empire and was a tool of social and political propaganda. Modern-Day Importance: It is now a UNESCO World Heritage Site and one of the New Seven Wonders of the World, attracting millions of visitors annually."
+      },
+      "taj-mahal": {
+        title: "Taj Mahal",
+        description: "Location:Agra, Uttar Pradesh, India. The Taj Mahal is a breathtaking white marble mausoleum in Agra, India, and one of the Seven Wonders of the World. This stunning monument was built by Mughal Emperor Shah Jahan as a tribute to his beloved wife, Mumtaz Mahal, who passed away in 1631. The complex is set amidst beautiful gardens and features a massive dome, surrounded by four smaller domes and four towering minarets. The intricate inlay work, calligraphy, and marble craftsmanship make the Taj Mahal a truly awe-inspiring sight. One of the most fascinating aspects of the Taj Mahal is its ability to change color depending on the time of day and weather conditions. At sunrise, the monument appears pinkish, gradually turning white as the day progresses. During sunset, it takes on a golden hue, and at night, under the light of the moon, it shimmers with a soft, silvery glow. Today, the Taj Mahal attracts millions of visitors each year and is recognized as a UNESCO World Heritage Site. Its beauty, romantic history, and mesmerizing color changes have made it an iconic symbol of love and one of the most celebrated wonders of the world. Visiting Information: Entry Time: Sunrise to Sunset (6:00 AM to 7:00 PM) Ticket Rates: Indians: ₹ 50 (inclusive of taxes) Foreigners: ₹ 1,100 (inclusive of taxes)"
+      }
+    };
+
+    function openWonder(wonderId) {
+      const wonder = wonders[wonderId];
+      document.getElementById("wonder-title").innerText = wonder.title;
+      document.getElementById("wonder-description").innerText = wonder.description;
+      document.getElementById("wonder-modal").style.display = "flex";
+    }
+
+    function closeWonder() {
+      document.getElementById("wonder-modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
